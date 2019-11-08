@@ -24,10 +24,12 @@ type ArgParser struct {
 	lenient  bool
 }
 
-// NewArgParser create an arguments parser. Any of the splitors inside a pair of identical quotes
-// is treated as normal character. The escaper can escape a following rune. We can have more than
-// one quotes as well as splitors, yet only a pair of **identical** quotes are a integral scope of
-// quote and all characters inside this scope will be treated as text except for the escaper.
+// NewArgParser create an arguments parser; any of the `splitors` inside a pair of identical `quotes`
+// is treated as normal character; the `escaper` can escape a following rune; we can have more than
+// one pair of `quotes` as well as `splitors`, yet only a pair of **identical** `quotes` are a integral
+// scope of quote and all characters inside this scope will be treated as text except for the
+// `escaper`; if the `lenient` is true, this parser will not report any error if any of the scopes is not
+// finished( *meaning that something does not end properly* ) after the parsing process is over.
 func NewArgParser(quotes string, splitors string, escaper rune, lenient bool) *ArgParser {
 	return &ArgParser{
 		symbols:  quotes + splitors,
@@ -36,7 +38,8 @@ func NewArgParser(quotes string, splitors string, escaper rune, lenient bool) *A
 		lenient:  lenient}
 }
 
-// GeneralArgParser the general purpose arguments parser
+// GeneralArgParser the general purpose `lenient` arguments parser with `"` and `'` as its `quotes`, `\t` as its `splitors`,
+// `\` as its escaper.
 func GeneralArgParser() *ArgParser {
 	return NewArgParser("\"'", " \t", '\\', true)
 }
