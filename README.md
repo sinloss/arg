@@ -6,7 +6,10 @@ echo -n "Hello \"world" ==> [echo, -n, Hello "world]
 ```
 
 # Constructor
-* NewArgParser(quotes string, splitors string, escaper rune, lenient bool)   
+* NewArgParser  
+```go
+NewArgParser(quotes string, splitors string, escaper rune, lenient bool)   
+```
 
 create an arguments parser; any of the `splitors` inside a pair of identical `quotes` is treated as normal character; 
 the `escaper` can escape a following rune; we can have more than one pair of `quotes` as well as `splitors`, yet only a pair of 
@@ -21,4 +24,7 @@ the general purpose `lenient` arguments parser with `"` and `'` as its `quotes`,
 # Member functions
 
 * Parse  
+```go
+Parse(text string)
+```
 parse the given text
