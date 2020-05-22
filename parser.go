@@ -38,8 +38,8 @@ func NewArgParser(quotes string, splitors string, escaper rune, lenient bool) *A
 		lenient:  lenient}
 }
 
-// GeneralArgParser the general purpose `lenient` arguments parser with `"` and `'` as its `quotes`, `\t` as its `splitors`,
-// `\` as its escaper.
+// GeneralArgParser the general purpose `lenient` arguments parser with `"` and `'` as its `quotes`, space 
+// and `\t` as its `splitors`, `\` as its escaper.
 func GeneralArgParser() *ArgParser {
 	return NewArgParser("\"'", " \t", '\\', true)
 }
